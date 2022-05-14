@@ -1,5 +1,5 @@
 {
-    "name": "streamlabs-ws-client",
+    "name": "@elmarceloc/streamlabs-ws-client",
     "version": "1.0.0",
     "description": "Unofficial Streamlabs Sockets API client library",
     "main": "lib/index.js",
