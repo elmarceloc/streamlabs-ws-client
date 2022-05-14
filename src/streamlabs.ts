@@ -99,8 +99,16 @@ class StreamlabsClient extends EventEmitter {
         this.client.on("event", (event: IStreamlabsWSEvent) => {
 
             try {
-                // Assert event.message is array
-                 this.emit(event.message);
+                 // Assert event.message is array
+                 if (!isArray(event.message)) {
+                    throw new Error("[STREAMLABS-WS-CLIENT]: event.message must be an array");
+                }
+
+                for (const message of event.message) {
+                    const currentEventMessage: IStreamlabsWSEvent = event;
+                    currentEventMessage.message = message;
+                    this.handleEvent(currentEventMessage);
+                }
             } catch (error) {
                 this.emit("error", error);
             }
