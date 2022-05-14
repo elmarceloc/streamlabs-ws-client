@@ -27,7 +27,7 @@
         "clean": "rm -rf lib",
         "start": "node lib/index.js",
         "docs": "docsify serve docs",
-        "build": "npm run clean && tsc -p .",
+        "build": " tsc -p .",
         "prepublishOnly": "npm run build"
     },
     "dependencies": {
